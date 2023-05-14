@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addItem } from '../todolistSlice'
+import { addItem } from '../store/todolistSlice'
 import Showtodolist from './showtodolist';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -15,7 +15,7 @@ const Todolist = () => {
         if (task != "") {
             dispatch(addItem({
                 title: task,
-                id:uuidv4()
+                id: uuidv4()
             }))
         }
         setTask('')
@@ -23,8 +23,8 @@ const Todolist = () => {
     return (
         <Box>
             <Container maxWidth="lg">
-                <Typography variant='h1' sx={{ textAlign: 'center', fontWeight: '700', padding: '2rem',color:'#fff',textShadow:' 0 0 0.2em #8E1199, 0 0 0.2em #8E1199'}}>Todolist APP</Typography>
-                <Box sx={{border: '1px solid gray', padding: '3rem' }}>
+                <Typography variant='h1' sx={{ textAlign: 'center', fontWeight: '700', padding: '2rem', color: '#fff', textShadow: ' 0 0 0.2em #8E1199, 0 0 0.2em #8E1199' }}>Todolist APP</Typography>
+                <Box sx={{ border: '2px solid #000', padding: '1.5rem'}}>
                     <Box
                         component="form"
                         sx={{
@@ -33,7 +33,7 @@ const Todolist = () => {
                         noValidate
                         autoComplete="off"
                     >
-                        <TextField sx={{ width: '500px', border: "1px solid #000",backgroundColor:'#B9BDE3' }} id="outlined-basic" label="Todo" variant="filled" value={task} onChange={(e) => setTask(e.target.value)} />
+                        <TextField sx={{ width: '500px', border: "1px solid #000", backgroundColor: '#B9BDE3' }} id="outlined-basic" label="Todo" variant="filled" value={task} onChange={(e) => setTask(e.target.value)} />
                         <Button sx={{
                             backgroundColor: '#000 !important', width: '100px !important'
                             , color: '#fff', fontSize: "20px", fontWeight: '700'
